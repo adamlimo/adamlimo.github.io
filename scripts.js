@@ -1,85 +1,104 @@
-// scripts.js
-document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        window.addEventListener('load', () => {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
+        $(document).ready(function() {
+            // Loader
+            setTimeout(function() {
+                $('.loader').fadeOut(500);
+            }, 2000);
+
+            // Smooth scrolling
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000);
+                }
+            });
+
+            // Navbar scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('header').addClass('scrolled');
+                } else {
+                    $('header').removeClass('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            $('.hamburger').click(function() {
+                $(this).toggleClass('active');
+                $('nav ul').toggleClass('active');
+            });
+
+            // Close mobile menu on link click
+            $('.nav-link').click(function() {
+                $('.hamburger').removeClass('active');
+                $('nav ul').removeClass('active');
+            });
+
+            // Fleet carousel
+            $('.fleet-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            // Testimonial slider
+            $('.testimonial-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
+
+            // Form submission
+            $('#booking-form').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you for your booking request. We will contact you shortly to confirm your reservation.');
+                this.reset();
+            });
+
+            $('#contact-form form').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you for your message. We will get back to you as soon as possible.');
+                this.reset();
+            });
+
+            // Animate on scroll
+            $(window).scroll(function() {
+                $(".animate__animated").each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    if (scroll > position - windowHeight + 100) {
+                        var animationClass = $(this).data('animation') || 'animate__fadeIn';
+                        $(this).addClass(animationClass);
+                    }
+                });
+            });
         });
-    }
-
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', () => {
-            document.querySelector('#booking-widget').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // GSAP Animations
-    gsap.from('.hero-content', {
-        duration: 1.5,
-        opacity: 0,
-        y: -50,
-        ease: 'power2.out'
-    });
-
-    gsap.from('.service-card', {
-        scrollTrigger: {
-            trigger: '.service-grid',
-            start: 'top bottom',
-            toggleActions: 'play none none none'
-        },
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        ease: 'power2.out'
-    });
-
-    gsap.from('.fleet-item', {
-        scrollTrigger: {
-            trigger: '.fleet-carousel',
-            start: 'top bottom',
-            toggleActions: 'play none none none'
-        },
-        duration: 1.5,
-        opacity: 0,
-        y: 50,
-        stagger: 0.3,
-        ease: 'power2.out'
-    });
-
-    gsap.from('.testimonial', {
-        scrollTrigger: {
-            trigger: '.testimonial-slider',
-            start: 'top bottom',
-            toggleActions: 'play none none none'
-        },
-        duration: 1.5,
-        opacity: 0,
-        y: 50,
-        stagger: 0.3,
-        ease: 'power2.out'
-    });
-
-    gsap.from('#contact-form', {
-        scrollTrigger: {
-            trigger: '#contact-form',
-            start: 'top bottom',
-            toggleActions: 'play none none none'
-        },
-        duration: 1.5,
-        opacity: 0,
-        y: 50,
-        ease: 'power2.out'
-    });
-});
