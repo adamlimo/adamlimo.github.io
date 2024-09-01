@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Adam Limo Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #f5f5f5;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .particle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0.5;
+            animation: particle-animation 20s infinite;
+        }
+        @keyframes particle-animation {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100vh); }
+        }
+        header {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #f1c40f;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e1b700;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .section {
+            margin: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            position: relative;
+            z-index: 1;
+        }
+        .section p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin: 20px 0;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #333;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        footer p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #f1c40f;
+        }
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #e1b700;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="particle-bg">
+        <!-- Particles will be added with JS -->
+    </div>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <a href="https://www.adamlimo.com">Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Our Story</h2>
+            <p>Adam Limo Services was founded in 2011 with a vision to redefine luxury travel. Over the years, we have built a reputation for excellence, becoming the preferred choice for celebrities, diplomats, and high-profile clients in Washington, DC.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Commitment</h2>
+            <p><strong>Comfort and Safety:</strong> Our commitment to comfort and safety is unwavering. Each vehicle in our fleet is equipped with top-of-the-line amenities, and our trained professionals ensure that every journey is both secure and relaxing.</p>
+            <p><strong>Respect and Personal Touch:</strong> We pride ourselves on our respect and love for each customer. Every interaction is personalized, ensuring that your experience with us is exceptional.</p>
+            <p><strong>Available 24/7:</strong> No matter the time of day or night, we are here to cater to your transportation needs. Our 24/7 service ensures that you can rely on us whenever you need us.</p>
+            <p><strong>Event Capabilities:</strong> From intimate gatherings to large-scale events, we handle all types of occasions with the utmost professionalism. Our expertise in coordinating motorcades and managing delegations makes us the perfect partner for any event.</p>
+        </section>
+
+        <section class="section">
+            <h2>Why Choose Us?</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>Decade of Excellence:</strong> Over ten years of outstanding service.</li>
+                <li><strong>Armored Vehicles:</strong> Advanced security features for added peace of mind.</li>
+                <li><strong>Celebrities and Diplomat Service:</strong> Discreet and high-quality service tailored for prestigious clients.</li>
+                <li><strong>Seamless Event Management:</strong> Expert coordination for flawless event transportation.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adam Limo Services. All rights reserved.</p>
+        <p>Phone: <a href="tel:+12028553844">202-855-3844</a> | Email: <a href="mailto:info@adamlimoservices.com">info@adamlimoservices.com</a></p>
+    </footer>
+
+    <script>
+        // Particle animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const particleBg = document.querySelector('.particle-bg');
+            const numParticles = 100;
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.width = `${Math.random() * 10 + 5}px`;
+                particle.style.height = particle.style.width;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                particleBg.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
