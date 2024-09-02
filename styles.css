@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
-
+/* Add both Playfair Display And EB Garmount here */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 :root {
     --primary-color: #0c0c0c;
     --secondary-color: #d4af37;
@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'EB Garamond', serif; /* Sets EB Garamond as the default font for body text */
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
@@ -162,7 +162,7 @@ nav ul li a:hover::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('/api/placeholder/1920/1080') center/cover no-repeat;
+    background: url('12.jpeg') center/cover no-repeat;
     color: var(--text-color);
     text-align: center;
     position: relative;

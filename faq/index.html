@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Adam Limo Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #f5f5f5;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-section {
+            margin: 40px 0;
+        }
+        .faq-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-align: center;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .faq-question {
+            font-size: 1.5em;
+            color: #f1c40f;
+            cursor: pointer;
+            margin: 0;
+        }
+        .faq-answer {
+            display: none; /* Hide answers by default */
+            margin-top: 10px;
+            color: #ccc;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            display: block; /* Show answer when active */
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e1b700;
+        }
+        header {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0);
+            border-bottom: 2px solid #33333356;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+            position: relative;
+            z-index: 1;
+            color: #f1c40f;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #f1c40f;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <header>Frequently Asked Questions</header>
+        <nav>
+            <a href="https://www.adamlimo.com">Home</a>
+        </nav>
+    </section>
+    <div class="container">
+        <section class="faq-section">
+            <div class="faq-item">
+                <h3 class="faq-question">What types of vehicles are available in your fleet?</h3>
+                <div class="faq-answer">
+                    <p>Our fleet includes luxury sedans, SUVs, stretch limousines, and armored vehicles, all maintained to the highest standards to ensure comfort and safety.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How can I make a reservation?</h3>
+                <div class="faq-answer">
+                    <p>You can make a reservation through our website's booking system or by emailing our customer service at <a href="mailto:info@adamlimoservices.com">info@adamlimoservices.com</a>. We are available 24/7 to assist you with your booking needs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Are your services available outside of Washington, DC?</h3>
+                <div class="faq-answer">
+                    <p>Yes, we offer our luxury transportation services in surrounding areas and for long-distance travel. Please contact us for more details and to discuss your specific needs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How do I cancel a reservation</h3>
+                <div class="faq-answer">
+                    <p>To cancel a reservation you can email us at <a href="mailto:info@adamlimoservices.com">info@adamlimoservices.com</a> or submit a inquiry on the site homepage.</p>
+                </div>
+        </section>
+        
+    </div>
+    <div class="particle-bg">
+        
+    </div>
+    <script>
+        // FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+        <script>
+            // Particle animation
+            document.addEventListener('DOMContentLoaded', () => {
+                const particleBg = document.querySelector('.particle-bg');
+                const numParticles = 100;
+                for (let i = 0; i < numParticles; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    particle.style.width = `${Math.random() * 10 + 5}px`;
+                    particle.style.height = particle.style.width;
+                    particle.style.top = `${Math.random() * 100}vh`;
+                    particle.style.left = `${Math.random() * 100}vw`;
+                    particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                    particleBg.appendChild(particle);
+                }
+            });
+        </script>
+</body>
+</html>
